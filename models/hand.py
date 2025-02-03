@@ -57,7 +57,7 @@ class Hand:
         :return: None
         """
         if not self.__dealer:
-            if card.get_rank() == "A":
+            if card.rank == "A":
                 choice: int = 0
                 while choice not in [1, 11]:
                     try:
@@ -66,7 +66,7 @@ class Hand:
                         print("Not a correct choice, try again")
                     except TypeError:
                         print("Something went wrong reading the input, try again")
-                card.set_value(choice)
+                card.value = choice
 
             for hand_card in self.__cards:
                 if hand_card.get_rank() == "A":
@@ -82,10 +82,10 @@ class Hand:
                     self.__value += choice - hand_card.get_value()
                     hand_card.set_value(choice)
         else:
-            if card.get_rank() == "A" and self.__value + 11 <= 21:
-                card.set_value(11)
+            if card.rank == "A" and self.__value + 11 <= 21:
+                card.value = 11
 
-        self.__value += card.get_value()
+        self.__value += card.value
         self.__cards.append(card)
 
     def get_value(self) -> int:

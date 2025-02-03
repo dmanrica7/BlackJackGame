@@ -48,7 +48,8 @@ class Deck:
 
     # Getter
 
-    def get_cards(self) -> list:
+    @property
+    def cards(self) -> list:
         """
         Getter of the card list of the deck
         :return: list
@@ -66,7 +67,7 @@ class Deck:
         if len(self.__cards) > 0:
             shuffle(self.__cards)
 
-    def draw(self) -> Card:
+    def draw(self) -> Card | None:
         """
         Gets a card from the deck, removes it and returns it
         :return: Card

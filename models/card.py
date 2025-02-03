@@ -26,17 +26,21 @@ class Card:
         self.__suit = suit
         self.__rank = rank
 
-    def get_value(self) -> int:
+    @property
+    def value(self) -> int:
         return self.__value
 
-    def get_suit(self) -> Suit:
+    @value.setter
+    def value(self, value: int):
+        self.__value = value
+
+    @property
+    def suit(self) -> Suit:
         return self.__suit
 
-    def get_rank(self) -> str:
+    @property
+    def rank(self) -> str:
         return self.__rank
-
-    def set_value(self, value: int):
-        self.__value = value
 
     def __str__(self) -> str:
         return f"{self.__rank} of {self.__suit.name}: Value {self.__value}"
