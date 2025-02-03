@@ -98,7 +98,7 @@ class Game:
         print("\nThanks for playing!")
 
     def __play_game(self) -> tuple:
-        for i in range(2):
+        for _ in range(2):
             self.__player_hand.add_card(self.__deck.draw())
             self.__dealer_hand.add_card(self.__deck.draw())
 
